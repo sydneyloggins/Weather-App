@@ -15,6 +15,7 @@
     <title>Weather App</title>
 </head>
 <body>
+    <!--Header-->
     <h1>Weather Dashboard</h1>
     <div class="container-fluid main">
         <div class="row">
@@ -22,16 +23,17 @@
             <div class="col-12 col-md-3 col-xl-3 city-search">
                 <h2>Search for a city:</h2>
                 <div class="input-group mb-3">
+                    <!--City Search-->
                     <input class="form-control textVal" placeholder="Austin..." aria-label=".form-control-lg example">
                     <div class="input-group-append btnPar">
                         <button class="btn btn-secondary search" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
                      </div>
                 </div>
-                
+                <!--Div for city history-->
                 <div class="container cityHist"></div>
                 
              </div>
-
+             <!--Current city container-->
         <div class="col-12 col-md-9 col-xl-9 dashboard">
             <div class="row current-day">
                 <div class=" card bg-light mb-3 " style ="max-width: 400px;">
@@ -43,6 +45,7 @@
 
                 
             </div>
+            <!--5 day forecast container-->
             <h2>Five Day Forecast</h2>
             <div class="fiveDayForecast"></div>
         </div>
