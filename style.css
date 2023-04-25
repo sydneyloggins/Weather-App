@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+h1 {
+    background-color: rgb(165, 170, 172);
+    text-align: center ;
+}
+
+.icons {
+    max-width: 25%;
+    height: auto;
+}
+
+.fiveDayForecast {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.histBtn {
+    margin: 5px;
+    
+}
