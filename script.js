@@ -1,9 +1,12 @@
+//API key
 var key = 'd91f90fd08eb1b800a68add91b40fe84';
 var city = 'Austin';
 
+//Variables for current day
 var date = moment().format('dddd, MMMM Do YYYY');
 var currentTime = moment().format('YYYY-MM-DD HH:MM:SS');
 
+//Saves text input of city searched and stores into an array in local storage
 var cityInputs = [];
 $('.search').on('click', function (event) {
     event.preventDefault();
@@ -18,6 +21,7 @@ $('.search').on('click', function (event) {
     todaysWeather();
 });
 
+//Displays city history buttons
 var constHistEl = $('.cityHist');
 function getHistory() {
     constHistEl.empty();
@@ -35,6 +39,7 @@ function getHistory() {
     } if (!city) {
         return;
     }
+    //When city history button is clicked, it displays the weather for that city
     $('.histBtn').on('click', function (event) {
         event.preventDefault();
         city = $(this).text();
@@ -42,8 +47,9 @@ function getHistory() {
         todaysWeather();
 });
 };
-
+//Displays current day weather
 var cardCurrentDay = $('.cardCurrentDay'); 
+//Displays current day weather and five day forecast 
 function todaysWeather() { 
     var getUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`;
 
@@ -59,19 +65,23 @@ function todaysWeather() {
         //City temperature
         var pEl = $('<p>').text('Temperature: ' + response.main.temp + '°F');
         $(cardCurrentDay).append(pEl);
+        //City feels like temperature
         var pElTemp = $('<p>').text('Feels Like: ' + response.main.feels_like + '°F');
         $(cardCurrentDay).append(pElTemp);
+       //City humidity
         var pElHumidity = $('<p>').text('Humidity: ' + response.main.humidity + '%');
         $(cardCurrentDay).append(pElHumidity);
+       //City wind speed
         var pElWind = $('<p>').text('Wind Speed: ' + response.wind.speed + ' MPH');
         $(cardCurrentDay).append(pElWind);
 }); 
     fiveDayForecast();
 };
 
-
+//Variable for five day forecast element
 var fiveDayForecastEl = $('.fiveDayForecast');
 
+//Displays five day forecast
 function fiveDayForecast () {
     var getUrlFiveDay = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${key}`;
 
@@ -95,7 +105,7 @@ function fiveDayForecast () {
             myWeather.push(testObj);
         }
     });
-
+    //Displays the cards for the five day forecast
     for (let i = 0; i < myWeather.length; i++) {
 
         var cardEl = $('<div>');
@@ -128,8 +138,8 @@ function fiveDayForecast () {
 });
 };
 
-
-function initLoad() {
+//Example data from Austin loads when page is refreshed
+function exampleData() {
 
 	var cityHistStore = JSON.parse(localStorage.getItem('city'));
 
@@ -141,4 +151,4 @@ function initLoad() {
     
 };
 
-initLoad();
+exampleData();
