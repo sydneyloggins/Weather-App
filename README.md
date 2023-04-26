@@ -9,7 +9,7 @@ This app displays the current weather of a city and a five day forecast as well.
 
 ## Installation
 
-Follow this link to access the application: 
+Follow this link to access the application: https://sydneyloggins.github.io/Weather-App/
 
 ## Usage
 When opened, the default city is displayed: ![Screenshot 2023-04-25 at 7 05 18 PM](https://user-images.githubusercontent.com/125998308/234434057-e2987da2-7b0a-4804-aad3-a3ad69870201.png)
